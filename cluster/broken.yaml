@@ -1,0 +1,62 @@
+# Three deliberately broken workloads, one per planned runbook skill.
+# Each fails in a different, realistic way so the agents have to tell them apart.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout # CrashLoopBackOff: the process exits because config is missing
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: checkout }
+  template:
+    metadata:
+      labels: { app: checkout }
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.37
+          command: ["sh", "-c", 'echo "starting checkout v2.3.1"; echo "FATAL: DATABASE_URL is not set" >&2; exit 1']
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommender # OOMKilled: allocates 200Mi against a 64Mi limit
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: recommender }
+  template:
+    metadata:
+      labels: { app: recommender }
+    spec:
+      containers:
+        - name: app
+          image: python:3.13-alpine
+          command:
+            [
+              "python",
+              "-c",
+              'import time; print("loading model...", flush=True); b = bytearray(200*1024*1024); time.sleep(3600)',
+            ]
+          resources:
+            requests: { memory: 32Mi }
+            limits: { memory: 64Mi }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments # ImagePullBackOff: a tag that does not exist (a typo in a rollout)
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: payments }
+  template:
+    metadata:
+      labels: { app: payments }
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27-alpne
