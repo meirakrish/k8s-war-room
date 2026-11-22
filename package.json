@@ -12,7 +12,8 @@
     "typecheck": "tsc",
     "test": "vitest run",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "investigate": "node --disable-warning=ExperimentalWarning src/investigate.ts"
   },
   "packageManager": "pnpm@12.11.2",
   "dependencies": {
