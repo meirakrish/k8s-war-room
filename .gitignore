@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.env
+*.log
+*.db
+*.db-shm
+*.db-wal
+# Git worktrees of Claude Code background agents
+.claude/worktrees/

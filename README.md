@@ -15,14 +15,14 @@ it, and a proposed fix. Nothing changes in the cluster until the engineer approv
 An agent is an LLM with a short job description and a small set of tools. Splitting the work across agents keeps each
 one focused, lets the investigators run in parallel, and lets only one agent ever change the cluster.
 
-| Agent       | Job                                                        | Can it change the cluster? |
-| ----------- | ---------------------------------------------------------- | -------------------------- |
-| Triage      | Reads the incident, posts hypotheses and investigation tasks | No                       |
-| Logs        | Reads pod logs and reports what they show                 | No                         |
-| Events      | Reads cluster events and rollouts                          | No                         |
-| Web         | Searches the web for the error message                     | No                         |
-| Remediator  | Proposes a fix for the leading hypothesis                  | Only after approval        |
-| Reviewer    | Checks the proposed fix before the engineer sees it        | No                         |
+| Agent      | Job                                                          | Can it change the cluster? |
+| ---------- | ------------------------------------------------------------ | -------------------------- |
+| Triage     | Reads the incident, posts hypotheses and investigation tasks | No                         |
+| Logs       | Reads pod logs and reports what they show                    | No                         |
+| Events     | Reads cluster events and rollouts                            | No                         |
+| Web        | Searches the web for the error message                       | No                         |
+| Remediator | Proposes a fix for the leading hypothesis                    | Only after approval        |
+| Reviewer   | Checks the proposed fix before the engineer sees it          | No                         |
 
 The engineer is part of the loop: any write to the cluster waits for their approval.
 

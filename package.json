@@ -1,0 +1,29 @@
+{
+  "name": "k8s-war-room",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-agent Kubernetes incident response",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "packageManager": "pnpm@12.11.2",
+  "dependencies": {
+    "@langchain/core": "^1.5.0",
+    "@meirakrish/llm-kit": "^0.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "prettier": "^3.10.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}
