@@ -3,7 +3,7 @@ import { chmod, mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listPodsTool, namespaceSchema, podNameSchema } from "../src/k8s/tools.ts";
+import { listPodsTool, namespaceSchema, podLogsTool, podNameSchema } from "../src/k8s/tools.ts";
 // Tip: a fake `kubectl` on PATH (see test/kubectl.test.ts) can print test/fixtures/pods-shop.json.
 
 describe("namespaceSchema", () => {
@@ -118,5 +118,51 @@ describe("list_pods tool", () => {
     const tool = listPodsTool({ context: "war-room" });
 
     await expect(tool.invoke({ namespace: "shop" })).rejects.toThrow(/Forbidden/);
+  });
+});
+
+describe("pod_logs tool", () => {
+  afterEach(() => vi.unstubAllEnvs());
+
+  it.each(["-f", "--all-containers", "Pod", "pod; ls", ""])(
+    "rejects the pod name %j without running kubectl",
+    async (pod) => {
+      // a fake kubectl that leaves a marker file if it is ever run
+      const dir = await useFakeKubectl(`touch "$(dirname "$0")/was-run"`);
+      const tool = podLogsTool({ context: "war-room" });
+
+      await expect(tool.invoke({ namespace: "shop", pod })).rejects.toThrow();
+      expect(existsSync(join(dir, "was-run"))).toBe(false);
+    },
+  );
+
+  it("adds --previous only when the model asks for it", async () => {
+    // a fake kubectl that prints each argument it receives on its own line
+    await useFakeKubectl(`printf '%s\\n' "$@"`);
+    const tool = podLogsTool({ context: "war-room" });
+
+    const without = String(await tool.invoke({ namespace: "shop", pod: "checkout-1" })).split("\n");
+    const withPrevious = String(await tool.invoke({ namespace: "shop", pod: "checkout-1", previous: true })).split(
+      "\n",
+    );
+    const explicitlyOff = String(await tool.invoke({ namespace: "shop", pod: "checkout-1", previous: false })).split(
+      "\n",
+    );
+
+    expect(without).not.toContain("--previous");
+    expect(explicitlyOff).not.toContain("--previous");
+    expect(withPrevious).toContain("--previous");
+  });
+
+  it("cuts a huge log to a small size but keeps its end, where the error is", async () => {
+    await useFakeKubectl(
+      `i=0; while [ $i -lt 500 ]; do echo "noise noise noise noise noise noise noise"; i=$((i+1)); done; echo "FATAL: the real error"`,
+    );
+    const tool = podLogsTool({ context: "war-room" });
+
+    const text = String(await tool.invoke({ namespace: "shop", pod: "checkout-1" }));
+
+    expect(text.length).toBeLessThan(2000); // the raw output is about 21,000 characters
+    expect(text).toContain("FATAL: the real error");
   });
 });

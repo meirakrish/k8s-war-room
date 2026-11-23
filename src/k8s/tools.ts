@@ -2,6 +2,7 @@ import { type StructuredToolInterface, tool } from "@langchain/core/tools";
 import { z } from "zod";
 import { kubectl } from "./kubectl.ts";
 import { summarizePods } from "./pods.ts";
+import { truncateMiddle } from "@meirakrish/llm-kit";
 
 /**
  * What the model may send as a namespace: a valid Kubernetes name (lowercase letters, digits, '-'; starts and ends
@@ -55,5 +56,34 @@ export const listPodsTool = (_opts: { context: string }): StructuredToolInterfac
       name: "list_pods",
       description: "Gets the list of pods for a given Kubernetes namespace",
       schema: listPodToolSchema,
+    },
+  );
+
+const MAX_LOGS_LINES = 100;
+const MAX_LOGS_SIZE = 1000;
+
+export const podLogsToolSchema = z.object({
+  namespace: namespaceSchema,
+  pod: podNameSchema,
+  previous: z.boolean().optional().describe("Get the previous pod logs"),
+});
+export const podLogsTool = (_opts: { context: string }): StructuredToolInterface =>
+  tool(
+    async ({ namespace, pod, previous }: { namespace: string; pod: string; previous?: boolean }) => {
+      const args = previous
+        ? ["logs", pod, "-n", namespace, `--tail=${MAX_LOGS_LINES}`, "--previous"]
+        : ["logs", pod, "-n", namespace, `--tail=${MAX_LOGS_LINES}`];
+
+      const str = await kubectl(args, _opts);
+      return truncateMiddle(str, MAX_LOGS_SIZE);
+    },
+    {
+      name: "pod_logs",
+      description:
+        `Reads the last ${MAX_LOGS_LINES} lines of a pod's logs, cut to about ${MAX_LOGS_SIZE} characters (start and end are kept). ` +
+        "Use it after list_pods shows a failing pod, to find out why. " +
+        "Set previous to true for a pod that keeps restarting (CrashLoopBackOff): the current container has just started " +
+        "and printed little, and the error is in the previous run.",
+      schema: podLogsToolSchema,
     },
   );
