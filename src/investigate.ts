@@ -1,33 +1,23 @@
 // Runs the agent once and prints the transcript. Run: pnpm investigate
-import { tool } from "@langchain/core/tools";
 import { createLlmClient, resolveLlmConfig } from "@meirakrish/llm-kit";
-import { z } from "zod";
 import { runAgentLoop, type LoopOptions, type LoopResult } from "./agents/loop.ts";
 import { AIMessage } from "@langchain/core/messages";
+import { listPodsTool } from "./k8s/tools.ts";
 
-const fakeRes = [
-  { name: "frontend-1", phase: "Running", ready: "1/1" },
-  { name: "checkout-1", ready: "0/1", lastError: "..." },
-];
-const listPods = tool(async ({ namespace }: { namespace: string }) => JSON.stringify(fakeRes), {
-  name: "list_pods",
-  description: "List pods on namespace",
-  schema: z.object({ namespace: z.string() }),
-});
-
+const context = "war-room";
 const llmConfig = resolveLlmConfig();
 const llm = await createLlmClient(llmConfig);
 console.log("model", llm.model);
 
 const systemPrompt =
   "You are a DevOps Investigator, you can only read, not write or change, use tools to find the problem, your answer should be concise, your answer should contain the cause and the evidence for it, if you cant find the cause, say so";
-const taskPrompt = "There is a problem with the shop namespace, please check and report your findings";
+const taskPrompt = "There is a problem with the 'shop' namespace, please check and report your findings";
 
 const loopOptions: LoopOptions = {
   llm,
   system: systemPrompt,
   task: taskPrompt,
-  tools: [listPods],
+  tools: [listPodsTool({ context })],
   maxSteps: 10,
 };
 const result: LoopResult = await runAgentLoop(loopOptions);
