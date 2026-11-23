@@ -2,7 +2,7 @@
 import { createLlmClient, resolveLlmConfig } from "@meirakrish/llm-kit";
 import { runAgentLoop, type LoopOptions, type LoopResult } from "./agents/loop.ts";
 import { AIMessage } from "@langchain/core/messages";
-import { listPodsTool } from "./k8s/tools.ts";
+import { listPodsTool, podLogsTool } from "./k8s/tools.ts";
 
 const context = "war-room";
 const llmConfig = resolveLlmConfig();
@@ -17,7 +17,7 @@ const loopOptions: LoopOptions = {
   llm,
   system: systemPrompt,
   task: taskPrompt,
-  tools: [listPodsTool({ context })],
+  tools: [listPodsTool({ context }), podLogsTool({ context })],
   maxSteps: 10,
 };
 const result: LoopResult = await runAgentLoop(loopOptions);
