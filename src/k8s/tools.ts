@@ -13,6 +13,21 @@ export const namespaceSchema = z
   .regex(/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/, "Only low case letters, numbers, and dashes allowed")
   .max(63, "Must be at most 63 characters");
 
+/**
+ * What the model may send as a pod name. Pod names follow the Kubernetes "DNS subdomain" rules: lowercase letters,
+ * digits, '-' and '.'; every dot-separated part starts and ends with a letter or digit; at most 253 characters.
+ * TODO: this accepts anything for now.
+ */
+export const podNameSchema = z
+  .string()
+  .describe("The Kubernetes cluster pod name to get logs from")
+  .regex(
+    /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*$/,
+    "Only low case letters, numbers,dashes and dots are allowed",
+  )
+  .min(1, "Must not be empty")
+  .max(253, "Must be at most 253 characters");
+
 export const listPodToolSchema = z.object({ namespace: namespaceSchema });
 
 /**

@@ -3,7 +3,7 @@ import { chmod, mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listPodsTool, namespaceSchema } from "../src/k8s/tools.ts";
+import { listPodsTool, namespaceSchema, podNameSchema } from "../src/k8s/tools.ts";
 // Tip: a fake `kubectl` on PATH (see test/kubectl.test.ts) can print test/fixtures/pods-shop.json.
 
 describe("namespaceSchema", () => {
@@ -29,6 +29,49 @@ describe("namespaceSchema", () => {
     ["an exclamation mark at the end", "shop!"],
   ])("rejects %s", (_why, name) => {
     expect(namespaceSchema.safeParse(name).success).toBe(false);
+  });
+});
+
+describe("podNameSchema", () => {
+  it("answers quickly even for a long invalid name (no catastrophic backtracking)", () => {
+    const start = Date.now();
+    expect(podNameSchema.safeParse("a".repeat(40) + "!").success).toBe(false);
+    expect(Date.now() - start).toBeLessThan(100);
+  });
+
+  it.each([
+    "checkout-d6466c98c-zn5qd",
+    "frontend-1",
+    "a",
+    "9",
+    "my.pod",
+    "a.b-c.d",
+    "a--b",
+    "ab--c",
+    "pod-a--1",
+    "a".repeat(253),
+  ])("accepts %j", (name) => {
+    expect(podNameSchema.safeParse(name).success).toBe(true);
+  });
+
+  it.each([
+    ["a flag", "-f"],
+    ["a long flag", "--all-containers"],
+    ["uppercase", "Pod"],
+    ["a space and a semicolon", "pod; ls"],
+    ["a leading dash", "-pod"],
+    ["a trailing dash", "pod-"],
+    ["a leading dot", ".pod"],
+    ["a trailing dot", "pod."],
+    ["two dots in a row", "a..b"],
+    ["a dash right after a dot", "a.-b"],
+    ["an empty string", ""],
+    ["too long (254 characters)", "a".repeat(254)],
+    ["an underscore", "my_pod"],
+    ["a trailing newline", "pod\n"],
+    ["a non-ASCII letter", "é"],
+  ])("rejects %s", (_why, name) => {
+    expect(podNameSchema.safeParse(name).success).toBe(false);
   });
 });
 
