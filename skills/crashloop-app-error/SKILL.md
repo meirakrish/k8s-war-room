@@ -46,5 +46,5 @@ Not visible: the pod's environment, config and secrets are not visible with the 
 ```
 
 - Always write all three lines.
-- If the logs could not be read, write `Cause: not determined: the logs could not be read.` and put the error text from the tool in Evidence.
+- If the log is empty, or the tool could not read it (for example "unable to retrieve container logs"), that text is not a log line. Write `Cause: not determined: the logs could not be read.` In the Evidence line, write `logs empty` or `logs could not be read ("<the tool's error>")` in place of `last log line "<line>"`.
 - Do not recommend a fix.

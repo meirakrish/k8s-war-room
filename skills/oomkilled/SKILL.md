@@ -46,5 +46,5 @@ Not visible: the memory limit and the actual usage are not visible with the avai
 ```
 
 - Always write all three lines. The last line is required in every report, even if the rest is short.
-- If the log is empty, write that in place of the last log line.
+- If the log is empty, or the tool could not read it (for example "unable to retrieve container logs"), that text is not a log line. Write `logs empty` or `logs could not be read ("<the tool's error>")` in the Evidence line, in place of `last log line "<line>"`. The Cause line stays the same, because the reason `OOMKilled` confirms it.
 - Do not recommend a new limit.
