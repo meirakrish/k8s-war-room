@@ -55,7 +55,10 @@ export const listPodsTool = (_opts: { context: string }): StructuredToolInterfac
     },
     {
       name: "list_pods",
-      description: "Gets the list of pods for a given Kubernetes namespace",
+      description:
+        "Lists the pods in a namespace with their phase, how many containers are ready, and each container's state, " +
+        "reason, exit code, restart count, and the reason its previous run ended. " +
+        "Call this first, to see which pods are unhealthy. It shows what is wrong, not always why.",
       schema: listPodToolSchema,
     },
   );
@@ -115,8 +118,10 @@ export const eventsTool = (_opts: { context: string }): StructuredToolInterface 
     {
       name: "get_events",
       description:
-        `Reads the last ${MAX_EVENTS} events for a namespace or a POD, ` +
-        "Use it after your container fails to run to find out why. ",
+        `Reads the last ${MAX_EVENTS} events (what the cluster itself recorded) for a namespace, or for one pod if you give its name. ` +
+        "Each event has a type (Normal or Warning), a reason, the object it is about, a message, a count and when it last happened. " +
+        "Use it for a pod that never started or never became ready (Pending, ImagePullBackOff, scheduling or probe failures): " +
+        "such a pod has no logs, and its events say why.",
       schema: eventsToolSchema,
     },
   );
