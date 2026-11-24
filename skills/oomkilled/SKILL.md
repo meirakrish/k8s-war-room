@@ -19,12 +19,12 @@ Trust the termination reason, not the current state. A pod that keeps being kill
 
 ## What to check next
 
-1. Read the logs of the previous run: call the logs tool with `previous: true`. A container killed for memory usually prints nothing about it, so the log often just stops. Note what the last lines say the container was doing (loading a model, processing a large file).
+1. Always read the logs of the previous run, before you report: call the logs tool with `previous: true`. A container killed for memory usually prints nothing about it, so the log often just stops. Note what the last lines say the container was doing (loading a model, processing a large file). The report needs this line.
 2. Optionally read the pod's events. They confirm the restart loop (`BackOff`), but they usually do not mention memory.
 
 ## What confirms it
 
-The reason `OOMKilled` is the confirmation. The cluster itself recorded that the container was killed for memory, so no log line is needed.
+The reason `OOMKilled` is the confirmation of the cause. The cluster itself recorded that the container was killed for memory, so no log line is needed to prove it. You still read the logs (see above), because the report includes what the container was doing.
 
 ## What rules it out, or points elsewhere
 
@@ -37,7 +37,14 @@ The tools do not show the container's memory limit or its actual usage. Say so. 
 
 ## How to report it
 
-- Cause: the container was killed for exceeding its memory limit.
-- Evidence: the reason `OOMKilled`, the exit code 137, the restart count, and the last log line if it shows what the container was doing.
-- Say that the limit and the usage are not visible with the available tools.
+Write the entry for this pod with these three lines, and fill in the values from the tools:
+
+```
+Cause: the container was killed for exceeding its memory limit.
+Evidence: reason OOMKilled, exit code 137, restart count <number>, last log line "<line>".
+Not visible: the memory limit and the actual usage are not visible with the available tools.
+```
+
+- Always write all three lines. The last line is required in every report, even if the rest is short.
+- If the log is empty, write that in place of the last log line.
 - Do not recommend a new limit.
