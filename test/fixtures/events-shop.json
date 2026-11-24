@@ -1,0 +1,1423 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "470",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "0/1 nodes are available: 1 node(s) had untolerated taint(s). preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4889b982e0",
+        "namespace": "shop",
+        "resourceVersion": "476",
+        "uid": "53d773fa-2bd1-4d06-86e1-b141b3f46ac7"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:07Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "477",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:07Z",
+      "message": "Successfully assigned shop/checkout-d6466c98c-zn5qd to war-room",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:07Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4aacdece1f",
+        "namespace": "shop",
+        "resourceVersion": "528",
+        "uid": "d661b934-4a70-4e11-881b-a906b3eb8b64"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:09Z",
+      "message": "Pulling image \"busybox:1.37\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4b2828bec0",
+        "namespace": "shop",
+        "resourceVersion": "546",
+        "uid": "cc519468-d717-417f-b352-45c4d6cea9c5"
+      },
+      "reason": "Pulling",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:12Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:12Z",
+      "message": "Successfully pulled image \"busybox:1.37\" in 2.938s (3.719s including waiting). Image size: 2222118 bytes.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:12Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4c05de634d",
+        "namespace": "shop",
+        "resourceVersion": "575",
+        "uid": "984f5385-96f3-4b07-88a9-4ce1c3831061"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 6,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:06Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:13Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4c0a5eaa33",
+        "namespace": "shop",
+        "resourceVersion": "896",
+        "uid": "dc84da68-14d8-4c0d-aa58-788ee7127301"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 6,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:06Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:13Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4c0f47323b",
+        "namespace": "shop",
+        "resourceVersion": "897",
+        "uid": "6ac24fd6-8e01-45fb-b0ef-7b6f2a3ab30f"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:17Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:06Z",
+      "message": "Container image \"busybox:1.37\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:17Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4d2c18482b",
+        "namespace": "shop",
+        "resourceVersion": "895",
+        "uid": "49ad80a9-5708-411a-a5c4-6770bd810d26"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 6,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:18Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "checkout-d6466c98c-zn5qd",
+        "namespace": "shop",
+        "resourceVersion": "517",
+        "uid": "b2335a86-296d-4c09-b418-5b3b0493965a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:07Z",
+      "message": "Back-off restarting failed container app in pod checkout-d6466c98c-zn5qd_shop(b2335a86-296d-4c09-b418-5b3b0493965a)",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:18Z",
+        "name": "checkout-d6466c98c-zn5qd.18e97b4d67db82a3",
+        "namespace": "shop",
+        "resourceVersion": "902",
+        "uid": "621e854c-8df2-4dee-87ce-b1e4b091f62b"
+      },
+      "reason": "BackOff",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "checkout-d6466c98c",
+        "namespace": "shop",
+        "resourceVersion": "467",
+        "uid": "85b30a78-c12a-4c65-9830-0cce77e3c2af"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Created pod: checkout-d6466c98c-zn5qd",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "checkout-d6466c98c.18e97b4889afbe05",
+        "namespace": "shop",
+        "resourceVersion": "473",
+        "uid": "6b777350-5cca-470e-8a0f-1fa5b7c885dc"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "checkout",
+        "namespace": "shop",
+        "resourceVersion": "464",
+        "uid": "41f58486-a2bc-4b69-8d02-6e238a8416f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Scaled up replica set checkout-d6466c98c from 0 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "checkout.18e97b488940407a",
+        "namespace": "shop",
+        "resourceVersion": "469",
+        "uid": "93e0e8ea-a5d5-4c1c-909e-0b95621188d8"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "455",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "0/1 nodes are available: 1 node(s) had untolerated taint(s). preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b488874eca1",
+        "namespace": "shop",
+        "resourceVersion": "463",
+        "uid": "6951ed92-bbf0-4f94-9d83-d5e6ab1069dc"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:07Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "465",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:07Z",
+      "message": "Successfully assigned shop/frontend-7bb584f994-dfrmm to war-room",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:07Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b4aacdc57ba",
+        "namespace": "shop",
+        "resourceVersion": "524",
+        "uid": "06b517e7-8708-4934-864e-5cb2c6cdb5c0"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "520",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:09Z",
+      "message": "Pulling image \"nginx:1.27-alpine\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b4b323d9e0a",
+        "namespace": "shop",
+        "resourceVersion": "555",
+        "uid": "e5d6d9f2-cf53-49bc-8097-e41b99d16f35"
+      },
+      "reason": "Pulling",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:20Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "520",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:20Z",
+      "message": "Successfully pulled image \"nginx:1.27-alpine\" in 899ms (10.73s including waiting). Image size: 20984244 bytes.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:20Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b4db1ce357f",
+        "namespace": "shop",
+        "resourceVersion": "610",
+        "uid": "e105c716-c8c8-4c69-ba89-b09f44b53660"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:20Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "520",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:20Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:20Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b4db394c9c8",
+        "namespace": "shop",
+        "resourceVersion": "611",
+        "uid": "44f6ec97-3b53-4ad9-84c6-b0584ad6c001"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:20Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-dfrmm",
+        "namespace": "shop",
+        "resourceVersion": "520",
+        "uid": "fbedef4a-d913-483e-8b58-88d7b0be9765"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:20Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:20Z",
+        "name": "frontend-7bb584f994-dfrmm.18e97b4db8a10a6e",
+        "namespace": "shop",
+        "resourceVersion": "612",
+        "uid": "18c24445-c6f9-4beb-8c16-26b582420748"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "452",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "0/1 nodes are available: 1 node(s) had untolerated taint(s). preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4887e0bcf6",
+        "namespace": "shop",
+        "resourceVersion": "456",
+        "uid": "4a5373ff-3b1a-43a0-961d-80e1c496abaa"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:07Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "459",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:07Z",
+      "message": "Successfully assigned shop/frontend-7bb584f994-pc424 to war-room",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:07Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4aace15420",
+        "namespace": "shop",
+        "resourceVersion": "531",
+        "uid": "cc0d1641-ce34-4f47-bf1d-243cb2328459"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "519",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:09Z",
+      "message": "Pulling image \"nginx:1.27-alpine\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4b29437ea3",
+        "namespace": "shop",
+        "resourceVersion": "548",
+        "uid": "f84d8ae2-4dc8-45f1-b5d2-5c59f12343a4"
+      },
+      "reason": "Pulling",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:19Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "519",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:19Z",
+      "message": "Successfully pulled image \"nginx:1.27-alpine\" in 6.28s (9.981s including waiting). Image size: 20984244 bytes.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:19Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4d7c37ce44",
+        "namespace": "shop",
+        "resourceVersion": "602",
+        "uid": "5fe66d1b-1f52-4ef9-abbe-d87069529810"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:19Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "519",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:19Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:19Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4d7f612217",
+        "namespace": "shop",
+        "resourceVersion": "603",
+        "uid": "cd3f36d7-5746-42f8-b59b-0d8341c84fc1"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:19Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{nginx}",
+        "kind": "Pod",
+        "name": "frontend-7bb584f994-pc424",
+        "namespace": "shop",
+        "resourceVersion": "519",
+        "uid": "ef98dbb5-94a2-4dfa-9102-cdf36099e852"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:19Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:19Z",
+        "name": "frontend-7bb584f994-pc424.18e97b4d8498de7d",
+        "namespace": "shop",
+        "resourceVersion": "604",
+        "uid": "08bb18e6-e40c-41d9-8c05-8c5eda680d1a"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "frontend-7bb584f994",
+        "namespace": "shop",
+        "resourceVersion": "448",
+        "uid": "dba75e4f-0d90-411d-9760-e1b452094d78"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Created pod: frontend-7bb584f994-pc424",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "frontend-7bb584f994.18e97b4887da0060",
+        "namespace": "shop",
+        "resourceVersion": "454",
+        "uid": "d7842452-27f4-48cf-a43b-eaf091972e75"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "frontend-7bb584f994",
+        "namespace": "shop",
+        "resourceVersion": "448",
+        "uid": "dba75e4f-0d90-411d-9760-e1b452094d78"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Created pod: frontend-7bb584f994-dfrmm",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "frontend-7bb584f994.18e97b48884084c7",
+        "namespace": "shop",
+        "resourceVersion": "461",
+        "uid": "439e19e6-e634-4450-9773-79b0f5418f41"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "frontend",
+        "namespace": "shop",
+        "resourceVersion": "447",
+        "uid": "a618fca0-2a22-48a0-a5f6-b351575836ba"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Scaled up replica set frontend-7bb584f994 from 0 to 2",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "frontend.18e97b48875225a5",
+        "namespace": "shop",
+        "resourceVersion": "449",
+        "uid": "3cf182cf-0e50-4f5b-9ee1-ef1043fe3f66"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "492",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "0/1 nodes are available: 1 node(s) had untolerated taint(s). preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b488b32a7c2",
+        "namespace": "shop",
+        "resourceVersion": "496",
+        "uid": "e3046ba4-81cc-4628-8c8c-b66bf9467a63"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:07Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "498",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:07Z",
+      "message": "Successfully assigned shop/payments-5d966647dc-hp8zq to war-room",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:07Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4aacddc86c",
+        "namespace": "shop",
+        "resourceVersion": "527",
+        "uid": "186b4fb4-c215-4c86-b759-fac7749a4a35"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "518",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:04Z",
+      "message": "Pulling image \"nginx:1.27-alpne\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4b27c3ec40",
+        "namespace": "shop",
+        "resourceVersion": "891",
+        "uid": "9cf6a036-73c2-4879-a01d-323b1d8164db"
+      },
+      "reason": "Pulling",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "518",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:05Z",
+      "message": "Failed to pull image \"nginx:1.27-alpne\": rpc error: code = NotFound desc = failed to pull and unpack image \"docker.io/library/nginx:1.27-alpne\": failed to resolve reference \"docker.io/library/nginx:1.27-alpne\": docker.io/library/nginx:1.27-alpne: not found",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4b56b7d47b",
+        "namespace": "shop",
+        "resourceVersion": "892",
+        "uid": "b8f457cf-11d3-4aac-81f0-d3b29fb4182b"
+      },
+      "reason": "Failed",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "518",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:05Z",
+      "message": "Error: ErrImagePull",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4b56b9d8f4",
+        "namespace": "shop",
+        "resourceVersion": "893",
+        "uid": "46781d87-37fa-4fed-a4f3-d88c4a807957"
+      },
+      "reason": "Failed",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 10,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:10Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "518",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:20:50Z",
+      "message": "Back-off pulling image \"nginx:1.27-alpne\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:10Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4b89dedf13",
+        "namespace": "shop",
+        "resourceVersion": "874",
+        "uid": "93438ab6-e02d-4908-892b-4f891a7bc0a8"
+      },
+      "reason": "BackOff",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 10,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:10Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "payments-5d966647dc-hp8zq",
+        "namespace": "shop",
+        "resourceVersion": "518",
+        "uid": "3915c970-5ed6-4086-9085-e4df4dc52b61"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:20:50Z",
+      "message": "Error: ImagePullBackOff",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:10Z",
+        "name": "payments-5d966647dc-hp8zq.18e97b4b89e08006",
+        "namespace": "shop",
+        "resourceVersion": "875",
+        "uid": "3af500cf-30c2-4ef1-8171-3338f17cc1c6"
+      },
+      "reason": "Failed",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "payments-5d966647dc",
+        "namespace": "shop",
+        "resourceVersion": "484",
+        "uid": "fe7d44e6-a2d3-4f30-a89f-74023d21316a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Created pod: payments-5d966647dc-hp8zq",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "payments-5d966647dc.18e97b488b2f968b",
+        "namespace": "shop",
+        "resourceVersion": "495",
+        "uid": "151c2012-2d4b-41b2-97bd-179084bafbd1"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "payments",
+        "namespace": "shop",
+        "resourceVersion": "481",
+        "uid": "0339aa4c-963f-406c-8e02-c1804ab91060"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Scaled up replica set payments-5d966647dc from 0 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "payments.18e97b488adc73a0",
+        "namespace": "shop",
+        "resourceVersion": "491",
+        "uid": "ee8a1193-3cc4-40ce-93d0-b8fe153b1374"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "482",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "0/1 nodes are available: 1 node(s) had untolerated taint(s). preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b488a7d5f18",
+        "namespace": "shop",
+        "resourceVersion": "485",
+        "uid": "5c696c8d-d072-4a2b-832c-3a3036799c31"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:07Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "489",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:07Z",
+      "message": "Successfully assigned shop/recommender-5c5b6ccfbc-chds4 to war-room",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:07Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4aacdd3238",
+        "namespace": "shop",
+        "resourceVersion": "525",
+        "uid": "73c55b8a-c5ba-490b-954a-8ea3a1a47554"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:09Z",
+      "message": "Pulling image \"python:3.13-alpine\"",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:09Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4b32ba8e5f",
+        "namespace": "shop",
+        "resourceVersion": "558",
+        "uid": "eb5404d9-d918-410c-b4fb-bd8e5216792f"
+      },
+      "reason": "Pulling",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:18:23Z",
+      "message": "Successfully pulled image \"python:3.13-alpine\" in 3.801s (14.523s including waiting). Image size: 16952588 bytes.",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:23Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4e94664734",
+        "namespace": "shop",
+        "resourceVersion": "622",
+        "uid": "b3213940-4782-48d5-abff-4016232c2d84"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:19:57Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:23Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4e96eba263",
+        "namespace": "shop",
+        "resourceVersion": "808",
+        "uid": "3b71ad36-561f-4fde-83ed-cde8c7a1b86f"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:24Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:19:57Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:24Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4e9ad567a8",
+        "namespace": "shop",
+        "resourceVersion": "809",
+        "uid": "f70153f1-991d-4d43-aa7f-da81df4f904c"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 4,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:28Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:19:57Z",
+      "message": "Container image \"python:3.13-alpine\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:28Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4fa8552dec",
+        "namespace": "shop",
+        "resourceVersion": "806",
+        "uid": "0b911e7c-fffe-45b7-95a4-16fa91281b88"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 5,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:18:29Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{app}",
+        "kind": "Pod",
+        "name": "recommender-5c5b6ccfbc-chds4",
+        "namespace": "shop",
+        "resourceVersion": "522",
+        "uid": "7274114b-78a0-437d-8c76-028fbc66f96e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:21:08Z",
+      "message": "Back-off restarting failed container app in pod recommender-5c5b6ccfbc-chds4_shop(7274114b-78a0-437d-8c76-028fbc66f96e)",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:18:29Z",
+        "name": "recommender-5c5b6ccfbc-chds4.18e97b4fe4258caa",
+        "namespace": "shop",
+        "resourceVersion": "907",
+        "uid": "1fc30143-75bc-4156-8052-a6a5b98e2104"
+      },
+      "reason": "BackOff",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "war-room",
+      "source": {
+        "component": "kubelet",
+        "host": "war-room"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "recommender-5c5b6ccfbc",
+        "namespace": "shop",
+        "resourceVersion": "475",
+        "uid": "c2282640-233d-4f2e-82cf-948b524536f6"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Created pod: recommender-5c5b6ccfbc-chds4",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "recommender-5c5b6ccfbc.18e97b488a758cb0",
+        "namespace": "shop",
+        "resourceVersion": "486",
+        "uid": "f6f46dd7-ff17-4398-aaf8-f536d10c1e40"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-19T15:17:57Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "recommender",
+        "namespace": "shop",
+        "resourceVersion": "472",
+        "uid": "db34d6d1-7147-4fb3-9905-fdf8a11fec77"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-19T15:17:57Z",
+      "message": "Scaled up replica set recommender-5c5b6ccfbc from 0 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T15:17:57Z",
+        "name": "recommender.18e97b488a10a9a0",
+        "namespace": "shop",
+        "resourceVersion": "479",
+        "uid": "0a93c2f2-f840-4da8-99e9-7abe6389713c"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

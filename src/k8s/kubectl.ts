@@ -14,7 +14,7 @@ export function assertReadOnly(_args: readonly string[]): void {
     throw new Error("no arguments found");
   }
 
-  if (!(_args[0] && ["get", "logs", "describe"].includes(_args[0]))) {
+  if (!(_args[0] && ["get", "logs", "describe", "events"].includes(_args[0]))) {
     throw new Error(`action ${_args[0]} not allowed`);
   }
 }

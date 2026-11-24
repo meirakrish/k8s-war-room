@@ -3,6 +3,7 @@ import { z } from "zod";
 import { kubectl } from "./kubectl.ts";
 import { summarizePods } from "./pods.ts";
 import { truncateMiddle } from "@meirakrish/llm-kit";
+import { summarizeEvents } from "./events.ts";
 
 /**
  * What the model may send as a namespace: a valid Kubernetes name (lowercase letters, digits, '-'; starts and ends
@@ -61,6 +62,7 @@ export const listPodsTool = (_opts: { context: string }): StructuredToolInterfac
 
 const MAX_LOGS_LINES = 100;
 const MAX_LOGS_SIZE = 1000;
+const MAX_EVENTS = 50;
 
 export const podLogsToolSchema = z.object({
   namespace: namespaceSchema,
@@ -85,5 +87,36 @@ export const podLogsTool = (_opts: { context: string }): StructuredToolInterface
         "Set previous to true for a pod that keeps restarting (CrashLoopBackOff): the current container has just started " +
         "and printed little, and the error is in the previous run.",
       schema: podLogsToolSchema,
+    },
+  );
+
+/**
+ * The `get_events` tool: the cluster's own notes about what happened to a namespace, or to one pod.
+ * Inputs: a namespace, and optionally a pod name.
+ */
+export const eventsToolSchema = z.object({
+  namespace: namespaceSchema,
+  pod: podNameSchema.optional(),
+});
+
+export const eventsTool = (_opts: { context: string }): StructuredToolInterface =>
+  tool(
+    async ({ namespace, pod }: { namespace: string; pod?: string }) => {
+      const args = pod
+        ? ["events", "--for", `pod/${pod}`, "-n", namespace, "-o", "json"]
+        : ["events", "-n", namespace, "-o", "json"];
+
+      const jsonStr: string = await kubectl(args, _opts);
+      const jsonObj = JSON.parse(jsonStr);
+      const jsonRes = summarizeEvents(jsonObj);
+
+      return JSON.stringify(jsonRes);
+    },
+    {
+      name: "get_events",
+      description:
+        `Reads the last ${MAX_EVENTS} events for a namespace or a POD, ` +
+        "Use it after your container fails to run to find out why. ",
+      schema: eventsToolSchema,
     },
   );

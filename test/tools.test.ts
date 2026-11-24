@@ -1,9 +1,9 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { chmod, mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listPodsTool, namespaceSchema, podLogsTool, podNameSchema } from "../src/k8s/tools.ts";
+import { eventsTool, listPodsTool, namespaceSchema, podLogsTool, podNameSchema } from "../src/k8s/tools.ts";
 // Tip: a fake `kubectl` on PATH (see test/kubectl.test.ts) can print test/fixtures/pods-shop.json.
 
 describe("namespaceSchema", () => {
@@ -164,5 +164,72 @@ describe("pod_logs tool", () => {
 
     expect(text.length).toBeLessThan(2000); // the raw output is about 21,000 characters
     expect(text).toContain("FATAL: the real error");
+  });
+});
+
+describe("get_events tool", () => {
+  afterEach(() => vi.unstubAllEnvs());
+  const eventsFixture = new URL("./fixtures/events-shop.json", import.meta.url).pathname;
+
+  it("has the name get_events and a description for the model", () => {
+    const tool = eventsTool({ context: "war-room" });
+
+    expect(tool.name).toBe("get_events");
+    expect(tool.description.length).toBeGreaterThan(10);
+  });
+
+  it.each(["-A", "--all-namespaces", "shop; ls", "Shop", ""])(
+    "rejects the namespace %j without running kubectl",
+    async (namespace) => {
+      const dir = await useFakeKubectl(`touch "$(dirname "$0")/was-run"`);
+      const tool = eventsTool({ context: "war-room" });
+
+      await expect(tool.invoke({ namespace })).rejects.toThrow();
+      expect(existsSync(join(dir, "was-run"))).toBe(false);
+    },
+  );
+
+  it.each(["-f", "--all-containers", "Pod", "pod; ls", ""])(
+    "rejects the pod name %j without running kubectl",
+    async (pod) => {
+      const dir = await useFakeKubectl(`touch "$(dirname "$0")/was-run"`);
+      const tool = eventsTool({ context: "war-room" });
+
+      await expect(tool.invoke({ namespace: "shop", pod })).rejects.toThrow();
+      expect(existsSync(join(dir, "was-run"))).toBe(false);
+    },
+  );
+
+  it("asks kubectl for the events of one pod only when a pod is given", async () => {
+    // a fake kubectl that saves the arguments it receives, and answers with an empty event list
+    const dir = await useFakeKubectl(`printf '%s\\n' "$@" > "$(dirname "$0")/args"; echo '{"items":[]}'`);
+    const tool = eventsTool({ context: "war-room" });
+    const argsSent = () => readFileSync(join(dir, "args"), "utf8").trim().split("\n");
+
+    await tool.invoke({ namespace: "shop" });
+    expect(argsSent()).toEqual(expect.arrayContaining(["events", "-n", "shop", "-o", "json"]));
+    expect(argsSent()).not.toContain("--for");
+
+    await tool.invoke({ namespace: "shop", pod: "checkout-1" });
+    expect(argsSent()).toEqual(expect.arrayContaining(["events", "-n", "shop", "--for", "pod/checkout-1"]));
+  });
+
+  it("returns the summary as JSON text, not the raw events", async () => {
+    await useFakeKubectl(`cat "${eventsFixture}"`);
+    const tool = eventsTool({ context: "war-room" });
+
+    const text = String(await tool.invoke({ namespace: "shop" }));
+    const events = JSON.parse(text);
+
+    expect(Array.isArray(events)).toBe(true);
+    expect(events.length).toBeGreaterThan(0);
+    expect(Object.keys(events[0]).sort()).toEqual(["count", "lastSeen", "message", "object", "reason", "type"]);
+  });
+
+  it("when kubectl fails, kubectl's own error text is in the error the model gets", async () => {
+    await useFakeKubectl(`echo 'Error from server (Forbidden): events is forbidden' >&2; exit 1`);
+    const tool = eventsTool({ context: "war-room" });
+
+    await expect(tool.invoke({ namespace: "shop" })).rejects.toThrow(/Forbidden/);
   });
 });

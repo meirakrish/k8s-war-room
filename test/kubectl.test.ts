@@ -10,6 +10,11 @@ describe("assertReadOnly", () => {
     expect(() => assertReadOnly(["describe", "pod", "pawn", "-n", "shop"])).not.toThrow();
   });
 
+  it("allows the events verb", () => {
+    expect(() => assertReadOnly(["events", "-n", "shop"])).not.toThrow();
+    expect(() => assertReadOnly(["events", "-n", "shop", "--for", "pod/checkout-1"])).not.toThrow();
+  });
+
   it("refuses write verbs: delete, apply, patch, scale, exec, edit", () => {
     expect(() => assertReadOnly(["delete", "pod", "x"])).toThrow();
     expect(() => assertReadOnly(["apply", "xxx.yaml"])).toThrow();
